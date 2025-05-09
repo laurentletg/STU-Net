@@ -1,5 +1,7 @@
+# > Check  [README_STUNET_LLG.md](README_STUNET_LLG.md) for step by step instructions to run the code to fine-tune the model on your own dataset.
+
+
 # STU-Net
-> Check  [README_STUNET_LLG.md](README_STUNET_LLG.md) for step by step instructions to run the code to fine-tune the model on your own dataset.
 
 **STU-Net: Scalable and Transferable Medical Image Segmentation Models Empowered by Large-Scale Supervised Pre-training** \
 *Ziyan Huang, Haoyu Wang, Zhongying Deng, Jin Ye, Yanzhou Su, Hui Sun, Junjun He, Yun Gu, Lixu Gu, Shaoting Zhang, Yu Qiao* \
