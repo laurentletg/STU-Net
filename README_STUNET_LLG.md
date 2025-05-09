@@ -50,7 +50,7 @@ Add the following lines to your `~/.bashrc` (or equivalent):
 ```bash
 export nnUNet_raw="/path/to/nnUNet_raw"
 export nnUNet_preprocessed="/path/to/nnUNet_preprocessed"
-export RESULTS_FOLDER="/path/to/nnUNet_results"
+export nnUNet_results="/path/to/nnUNet_results"
 ```
 
 Then reload:
@@ -104,9 +104,11 @@ It should look like this:
 - See the main `README.md` for download links.
 - I put them under a new folder called `weights` in the `STU-Net` folder. The file should look like `small_ep4k.model`.
 
-```bash
 
-## 9. Fine‑Tune STU‑Net
+
+## 10 . Fine‑Tune STU‑Net
+
+> Do not forget to put to off sleep/suspend/hibernate mode on your computer before running the training.
 
 Run your fine‑tuning job using the pretrained checkpoint and the STU‑Net trainer (use the trainer that matches your model size):
 
@@ -120,7 +122,7 @@ python nnunetv2/run/run_finetuning_stunet.py \
 
 ---
 
-## 10. Troubleshooting Tips
+## 11. Troubleshooting Tips
 
 * **KeyError: pool\_op\_kernel\_sizes**
 
