@@ -113,9 +113,28 @@ To perform fine-tuning on downstream tasks, use the following command with the b
 python run_finetuning.py 3d_fullres STUNetTrainer_base_ft TASKID FOLD -pretrained_weights MODEL
 ```
 For fine-tuning nnUNetv2, you can execute the program using the following command.
+
+Set up env variables
+
+
+```bash
+export nnUNet_raw="/home/llg/Dropbox/PYTHONCODES/nnUNet/Datasets_to_put_here/nnUNet_raw"
+export nnUNet_preprocessed="/home/llg/Insync/laurentletg@gmail.com/Google Drive/GDRIVE RECHERCHE/GDRIVE PROJECTS/2023_BRAIN_EXTRACTION/7_CODE_ANALYSIS_BRAIN_EXTRACTION/MODELS/STU-Net/data/nUNet_preprocessed"
+export nnUNet_RESULTS="/home/llg/Insync/laurentletg@gmail.com/Google Drive/GDRIVE RECHERCHE/GDRIVE PROJECTS/2023_BRAIN_EXTRACTION/7_CODE_ANALYSIS_BRAIN_EXTRACTION/MODELS/STU-Net/data/nUNet_results"
+```
+
+```aiignore
+nnUNetv2_plan_and_preprocess -d 004 -c 3d_fullres
+```
+
 ```
 python nnunetv2/run/run_finetuning_stunet.py Datasetxxx 3d_fullres FOLD -pretrained_weights MODEL -tr STUNetTrainer_base_ft 
 ```
+```
+/home/llg/Insync/laurentletg@gmail.com/Google Drive/GDRIVE RECHERCHE/GDRIVE PROJECTS/2023_BRAIN_EXTRACTION/7_CODE_ANALYSIS_BRAIN_EXTRACTION/MODELS/STU-Net/weights/small_ep4k.model
+```
+
+
 If we wish to start training from scratch, we can use the following command.
 ```
 python nnunetv2/run/run_training.py Datasetxxx 3d_fullres FOLD  -tr STUNetTrainer_base
