@@ -1,7 +1,10 @@
 # nUNet part
-1. Activate the nnunet env
-```bash
-conda activate nnunet
+1. Clone the repo : https://github.com/uni-medical/STU-Net.git
+
+2. Create a conda environment
+
+
+
 ```
 2. Install the required packages
 ```bash
@@ -30,7 +33,14 @@ pip install connected-components-3d
 ```bash
 export nnUNet_raw="/home/llg/Dropbox/PYTHONCODES/nnUNet/Datasets_to_put_here/nnUNet_raw"
 export nnUNet_preprocessed="/home/llg/Insync/laurentletg@gmail.com/Google Drive/GDRIVE RECHERCHE/GDRIVE PROJECTS/2023_BRAIN_EXTRACTION/7_CODE_ANALYSIS_BRAIN_EXTRACTION/MODELS/STU-Net/data/nUNet_preprocessed"
-export nnUNet_RESULTS="/home/llg/Insync/laurentletg@gmail.com/Google Drive/GDRIVE RECHERCHE/GDRIVE PROJECTS/2023_BRAIN_EXTRACTION/7_CODE_ANALYSIS_BRAIN_EXTRACTION/MODELS/STU-Net/data/nUNet_results"
+export nnUNet_results="/home/llg/Insync/laurentletg@gmail.com/Google Drive/GDRIVE RECHERCHE/GDRIVE PROJECTS/2023_BRAIN_EXTRACTION/7_CODE_ANALYSIS_BRAIN_EXTRACTION/MODELS/STU-Net/data/nUNet_results"
+```
+
+```aiignore
+export nnUNet_raw_data_base  ="/home/llg/Dropbox/PYTHONCODES/nnUNet/Datasets_to_put_here/nnUNet_raw"
+export nnUNet_preprocessed= "/home/llg/Insync/laurentletg@gmail.com/Google Drive/GDRIVE RECHERCHE/GDRIVE PROJECTS/2023_BRAIN_EXTRACTION/7_CODE_ANALYSIS_BRAIN_EXTRACTION/MODELS/STU-Net/data/nUNet_preprocessed"
+export RESULTS_FOLDER= ="/home/llg/Insync/laurentletg@gmail.com/Google Drive/GDRIVE RECHERCHE/GDRIVE PROJECTS/2023_BRAIN_EXTRACTION/7_CODE_ANALYSIS_BRAIN_EXTRACTION/MODELS/STU-Net/data/nUNet_results"
+
 ```
 
 
@@ -44,11 +54,13 @@ nnUNetv2_plan_and_preprocess -d 004 -c 3d_fullres
 
 5. fine tune
 ```aiignore
-python nnunetv2/run/run_finetuning_stunet.py Dataset004 3d_fullres 0 -pretrained_weights "/home/llg/Insync/laurentletg@gmail.com/Google Drive/GDRIVE RECHERCHE/GDRIVE PROJECTS/2023_BRAIN_EXTRACTION/7_CODE_ANALYSIS_BRAIN_EXTRACTION/MODELS/STU-Net/weights/small_ep4k.model" -tr STUNetTrainer_small_ft --checkpoint_not_required
+python nnunetv2/run/run_finetuning_stunet.py Dataset004 3d_fullres 0 -pretrained_weights "/home/llg/Insync/laurentletg@gmail.com/Google Drive/GDRIVE RECHERCHE/GDRIVE PROJECTS/2023_BRAIN_EXTRACTION/7_CODE_ANALYSIS_BRAIN_EXTRACTION/MODELS/STU-Net/weights/small_ep4k.model" -tr STUNetTrainer_small_ft 
 
 ```
 
 Would need to repeat for all folds
+
+
 
 
 
