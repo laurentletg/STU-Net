@@ -1,4 +1,4 @@
-# > Check  [README_STUNET_LLG.md](README_STUNET_LLG.md) for step by step instructions to run the code to fine-tune the model on your own dataset.
+# --> Check  [README_STUNET_LLG.md](README_STUNET_LLG.md) for step by step instructions to run the code to fine-tune the model on your own dataset.
 
 
 # STU-Net
