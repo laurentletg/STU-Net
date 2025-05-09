@@ -88,29 +88,34 @@ python -m nnunetv2.experiment_planning.plan_and_preprocess_entrypoints \
 ```
 
 ## 8. Copy the pkl file in the right preprocess folder - use the file that matches the model. 
-Copy the appropriate `.pkl` under `plan_files/` directory and paste in under  the`nnUNet_preprocessed/Dataset004/` folder , simply copy or link it:
+Copy the appropriate `.pkl` under `plan_files/` directory and paste it under  the`nnUNet_preprocessed/Dataset004/` folder  or link it:
 
 ```bash
 cp plan_files/Dataset004_nnUNetPlansv2.1_plans_3d_fullres.pkl \
    "$nnUNet_preprocessed/Dataset004/nnUNetPlansv2.1_plans_3d_fullres.pkl"
 ```
 
-It should look like this:
+It should look like this after running the plan and process command above:
+
+
 
 ![img.png](img.png)
 
 
 ## 9. Download Pretrained Weights
 - See the main `README.md` for download links.
-- I put them under a new folder called `weights` in the `STU-Net` folder. The file should look like `small_ep4k.model`.
+- I put them under a new folder called `weights` in the `STU-Net` folder. The files look like `small_ep4k.model`.
 
 
 
-## 10 . Fine‑Tune STU‑Net
+## 10. Fine‑Tune STU‑Net
 
-> Do not forget to put to off sleep/suspend/hibernate mode on your computer before running the training.
+> Do not forget to put to off sleep/suspend/hibernate mode on your computer.
 
-Run your fine‑tuning job using the pretrained checkpoint and the STU‑Net trainer (use the trainer that matches your model size):
+If you want to change hyperparameters of the trainer you can do so in  `nnUNet-2.2/nnunetv2/training/nnUNetTrainer/STUNetTrainer.py`.  
+Also see this issue regarding learning rate : https://github.com/uni-medical/STU-Net/issues/24
+
+Run fine‑tuning using the pretrained checkpoint and the STU‑Net trainer (use the trainer that matches your model size):
 
 ```bash
 # Example with FOLD 1 
