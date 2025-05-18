@@ -150,16 +150,4 @@ python nnunetv2/run/run_finetuning_stunet.py \
   * Confirm you ran `pip install -e .` in the active conda env and that `which nnUNetv2_plan_and_preprocess` points to that env.
 
 
-## 12. Restarting training after interruption
-
-If your training was interrupted, you can resume it by running the same command again. nnU-Net will automatically pick up from where it left off by adding the `--c` flag. First chect that the checkpoint file exists in the results folder, e.g. `RESULTS_FOLDER/nnUNet/CONFIGURATION/TASK_NAME_OR_ID/TRAINER_CLASS_NAME__PLANS_FILE_NAME/FOLD/`. 
-
-Then run the command again with the `--c` flag:
-
-```bash
-python nnunetv2/run/run_finetuning_stunet.py \
-  004 3d_fullres 1 \
-  -pretrained_weights "/path/to/small_ep4k.model" \ 
-  -tr STUNetTrainer_small_ft
-  -- c
-```
+## 12. Restarting training after interruption - seems to not work with the `run_finetuning_stunet.py` script --> start training from scratch again.
