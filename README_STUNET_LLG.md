@@ -4,6 +4,8 @@ Step by step guide to fine-tune STU‑Net on your dataset using nnU‑Net v2.
 
 ---
 
+# PRELIMINARY INSTLLATIONS
+
 ## 1. Clone the STU‑Net Repository
 
 ```bash
@@ -43,11 +45,17 @@ pip install -e .
 
 ---
 
+# TRAINING/FINETUNING STARTS HERE
+
 ## 5. Set Environment Variables
 
 Add the following lines to your `~/.bashrc` (or equivalent):
 
+> **Note : it is best to create experiment specific folders for the nnUNet preprocessed and results folders.**
+
+
 ```bash
+
 export nnUNet_raw="/path/to/nnUNet_raw"
 export nnUNet_preprocessed="/path/to/nnUNet_preprocessed"
 export nnUNet_results="/path/to/nnUNet_results"
@@ -87,6 +95,7 @@ python -m nnunetv2.experiment_planning.plan_and_preprocess_entrypoints \
   -d 004 -c 3d_fullres --verify_dataset_integrity
 ```
 
+
 ## 8. Copy the pkl file in the right preprocess folder - use the file that matches the model. 
 Copy the appropriate `.pkl` under `plan_files/` directory and paste it under  the`nnUNet_preprocessed/Dataset004/` folder  or link it:
 
@@ -109,6 +118,7 @@ It should look like this after running the plan and process command above:
 
 
 ## 10. Fine‑Tune STU‑Net
+
 
 > Do not forget to put to off sleep/suspend/hibernate mode on your computer.
 
@@ -136,3 +146,18 @@ python nnunetv2/run/run_finetuning_stunet.py \
 * **ModuleNotFoundError: nnunetv2**
 
   * Confirm you ran `pip install -e .` in the active conda env and that `which nnUNetv2_plan_and_preprocess` points to that env.
+
+
+## 12. Restarting training after interruption
+
+If your training was interrupted, you can resume it by running the same command again. nnU-Net will automatically pick up from where it left off by adding the `--c` flag. First chect that the checkpoint file exists in the results folder, e.g. `RESULTS_FOLDER/nnUNet/CONFIGURATION/TASK_NAME_OR_ID/TRAINER_CLASS_NAME__PLANS_FILE_NAME/FOLD/`. 
+
+Then run the command again with the `--c` flag:
+
+```bash
+python nnunetv2/run/run_finetuning_stunet.py \
+  004 3d_fullres 1 \
+  -pretrained_weights "/path/to/small_ep4k.model" \ 
+  -tr STUNetTrainer_small_ft
+  -- c
+```
