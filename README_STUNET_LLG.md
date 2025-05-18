@@ -80,6 +80,8 @@ source ~/.bashrc
    └─ dataset.json
    ```
 
+2. Create experiment specific nnuet preprocess and results folders
+
 
 ## 7. Plan & Preprocess (nnU‑Net v2)
 
